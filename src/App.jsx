@@ -1,23 +1,68 @@
-import React, { useState } from 'react';
-import ProductList from './components/ProductList';
+import React, { useState } from "react";
+import ProductList from "./components/ProductList";
 
 const App = () => {
-  // TODO: Define initial product data
+	// Define initial product data
+	const products = [
+		{
+			id: "1",
+			name: "margle",
+			price: "47.3 Euros",
+			inStock: true,
+		},
+		{
+			id: "2",
+			name: "JoanaB",
+			price: "Dignity",
+			inStock: false,
+		},
+		{
+			id: "3",
+			name: "Laptop",
+			price: "$7",
+			inStock: true,
+		},
+		{
+			id: "4",
+			name: "Phone",
+			price: "Slavery",
+			inStock: false,
+		},
+		{
+			id: "5",
+			name: "Tablet",
+			price: "Sanity",
+			inStock: true,
+		},
+	];
 
-  // TODO: Implement state to manage filtering
+	//Implement state to manage filtering
 
-  // TODO: Implement logic to filter products based on availability
+	const [filteredProducts, setFilteredProducts] = useState(products);
 
-  return (
-    <div>
-      <h1>{/* TODO: Add 'Product Dashboard' title here */}</h1>
-      
-      {/* TODO: Add buttons to allow filtering by availability */}
+	//  Implement logic to filter products based on availability
 
-      {/* TODO: Render the ProductList component and pass filtered products */}
-      
-    </div>
-  );
+	function filterProducts(filter) {
+		setFilteredProducts(
+			products.filter((product) => {
+				return product.inStock === filter;
+			})
+		);
+	}
+
+	return (
+		<div>
+			<h1>Product Dashboard</h1>
+
+			<button onClick={() => filterProducts(true)}>
+				Filter Availability
+			</button>
+
+			{/* TODO: Render the ProductList component and pass filtered products */}
+
+			<ProductList products={filteredProducts} />
+		</div>
+	);
 };
 
 export default App;
