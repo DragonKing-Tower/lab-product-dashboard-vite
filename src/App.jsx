@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ProductList from "./components/ProductList";
+import Button from "@mui/material/Button";
 
 const App = () => {
 	// Define initial product data
@@ -54,11 +55,15 @@ const App = () => {
 		<div>
 			<h1>Product Dashboard</h1>
 
-			<button onClick={() => filterProducts(true)}>
+			<Button
+				onClick={() => filterProducts(true)}
+				variant="contained"
+				color="secondary"
+			>
 				Filter Availability
-			</button>
+			</Button>
 
-			{/* TODO: Render the ProductList component and pass filtered products */}
+			{/* TODO: Render the ProductList componentS and pass filtered products */}
 
 			<ProductList products={filteredProducts} />
 		</div>

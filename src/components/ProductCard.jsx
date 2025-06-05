@@ -3,8 +3,6 @@ import styles from "../styles/ProductCard.module.css";
 
 const ProductCard = ({ name, price, inStock }) => {
 
-  function remove
-
 	return (
 		<div
 			className={`${styles.card} ${
